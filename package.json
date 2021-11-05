@@ -2,7 +2,7 @@
   "name": "janetech",
   "version": "1.0.0",
   "description": "take home coding challenge",
-  "main": "index.js",
+  "main": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,5 +11,9 @@
     "challenge"
   ],
   "author": "thomas grzesiakowski",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash.chunk": "^4.2.0",
+    "lodash.compact": "^3.0.1"
+  }
 }

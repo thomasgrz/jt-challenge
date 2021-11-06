@@ -75,7 +75,7 @@ describe("processMatchdayInput", () => {
       expectedOutputData = String(sampleOutput);
     });
 
-    expect(processedInputData).toEqual(undefined);
+    expect(processedInputData).toEqual(expectedOutputData);
   });
 });
 

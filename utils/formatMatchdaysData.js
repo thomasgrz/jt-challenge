@@ -1,6 +1,33 @@
 const chunk = require("lodash.chunk");
 const compact = require("lodash.compact");
 
+/**
+ * Takes a matchdayData string and transforms it
+ * into an object where each key of that object is a number (>=1)
+ * which correlates to the matchday.
+ * The value at each key is another object where each key
+ * is a team name and the value at that key is a number
+ * representing their accumulated points as of that day (inclusive)
+ * 
+ * @param {string} matchdayData 
+ * @returns {object} 
+ * Example object:
+ * {
+ *   1: {
+ *        "San Jose Earthquakes": 3, 
+ *       " Capitola Seahorses": 1, 
+ *        Felton Lumberjacks 4, 
+ *        ...
+ *      },
+ *   2: {
+ *        "San Jose Earthquakes": 6, 
+ *        "Capitola Seahorses": 1, 
+ *        "Felton Lumberjacks": 7, 
+ *        ...
+ *      }
+ * ...
+ * }
+ */
 module.exports.default = function formatMatchdaysData(matchdayData) {
     const allMatchdays = chunk(compact(matchdayData.split(/\r?\n/)), 3);
     const formattedData = {};

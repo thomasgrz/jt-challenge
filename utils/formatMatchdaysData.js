@@ -37,6 +37,7 @@ module.exports.default = function formatMatchdaysData(matchdayData) {
     const scoreRegex = /(\d+)/;
 
     matchday.forEach((match) => {
+      // TODO: break this scoring functionality out in separate module that can be unit tested
       const [team1Data, team2Data] = match.split(",");
       const [team1Score, team2Score] = [
         team1Data.match(scoreRegex)[0],

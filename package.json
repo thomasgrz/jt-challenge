@@ -2,7 +2,7 @@
   "name": "janetech",
   "version": "1.0.0",
   "description": "take home coding challenge",
-  "main": "cli.js",
+  "main": "parse-matchdays.js",
   "scripts": {
     "test": "jest"
   },

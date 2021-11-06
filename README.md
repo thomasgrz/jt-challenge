@@ -6,10 +6,6 @@
 
 3. run `chmod +x ./parse-matchdays.js` on the machine in order to give it executable privileges 😎
 
-
-
-Bada Bing! Bada Boom! That (should) be it.
-
 ## How To Use parse-matchdays.js 🏃🏻‍♂️
 Ensure parse-matchdays.js has been given executable privileges so that it can be leveraged via the command line in two ways.
 
@@ -25,8 +21,6 @@ Either approach should yield the same output given the same input and run idempo
 
 ## How To Run The Tests ❎
 `npm run test`  
-
-That's it! 😉
 
 ## The Problem
 

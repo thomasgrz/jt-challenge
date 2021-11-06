@@ -15,5 +15,8 @@
   "dependencies": {
     "lodash.chunk": "^4.2.0",
     "lodash.compact": "^3.0.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   }
 }

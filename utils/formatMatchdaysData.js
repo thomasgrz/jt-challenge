@@ -33,11 +33,6 @@ module.exports.default = function formatMatchdaysData(matchdayData) {
   const formattedData = {};
 
   allMatchdays.forEach((matchday, matchdayIndex) => {
-    // for each array within the array
-    // create a new matchday<number> key on matchdays
-    // the value of each matchday<number> key will be an object
-    // the values in the matchday<number> object
-    // where the keys are <teamName> and the values are <totalPoints, inclusive of all previous match points>
     formattedData[matchdayIndex + 1] = {};
     const scoreRegex = /(\d+)/;
 

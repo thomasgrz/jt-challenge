@@ -1,3 +1,33 @@
+# Solution:
+## How To Setup 🛠
+1. Ensure you have Node installed globally on the target machine.
+
+2. Run `npm i` to install the dependencies.
+
+3. run `chmod +x ./parse-matchdays.js` on the machine in order to give it executable privileges 😎
+
+
+
+Bada Bing! Bada Boom! That (should) be it.
+
+## How To Use parse-matchdays.js 🏃🏻‍♂️
+Ensure parse-matchdays.js has been given executable privileges so that it can be leveraged via the command line in two ways.
+
+The first way is by passing the filepath as an argument when executing the script like so: `./parse-matchdays.js <path-to-txt-file>`
+
+Example: `./parse-matchdays.js sample-input.txt` 
+
+The second way is by piping a txt to it like so: `cat <file.txt> | ./parse-matchdays.js` 
+
+Example: `cat sample-input.txt | ./parse-matchdays.js`
+
+Either approach should yield the same output given the same input and run idempotently.
+
+## How To Run The Tests ❎
+`npm run test`  
+
+That's it! 😉
+
 ## The Problem
 
 We want you to create a command-line application that reads a listing of game

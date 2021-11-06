@@ -3,8 +3,6 @@ const formatMatchdayOutput = require("./formatMatchdayOutput").default;
 const processMatchdayInput = require("./processMatchdayInput").default;
 const sortWinningTeams = require("./sortWinningTeams").default;
 const formatMatchdaysData = require("./formatMatchdaysData").default;
-const path = require('path');
-const child = require('child_process');
 
 describe("formatMatchdaysData", () => {
   it("take a string of matchday data and output it in the correct format with scores aggregated", () => {
@@ -58,9 +56,6 @@ describe("sortWinningTeams", () => {
 });
 
 describe("processMatchdayInput", () => {
-  exec = path.join(__dirname, '.', 'processMatchdayInput.js');
-  proc = child.spawn(exec, {stdio: 'pipe'});
-  
   it("processes matchdays input data correctly", () => {
     const readStreamSampleInput = fs.createReadStream("./sample-input.txt");
 

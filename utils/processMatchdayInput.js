@@ -1,13 +1,13 @@
-const formatMatchdaysData = require("./formatMatchdaysData").default
-const formatMatchdayOutput = require("./formatMatchdayOutput").default
+const formatMatchdaysData = require("./formatMatchdaysData").default;
+const formatMatchdayOutput = require("./formatMatchdayOutput").default;
 
 /**
  * Consumes raw matchdays input data,
  * transforms data into a string,
- * formats the string, 
+ * formats the string,
  * then outputs data to stdout
- * 
- * @param {Buffer} input 
+ *
+ * @param {Buffer} input
  */
 module.exports.default = function processMatchdayInput(input) {
   const data = String(input);
@@ -20,4 +20,4 @@ module.exports.default = function processMatchdayInput(input) {
       process.stdout.write(matchdayOutput);
     }
   }
-}
+};

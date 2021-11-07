@@ -1,8 +1,8 @@
-const fs = require("fs");
-const formatMatchdayOutput = require("./formatMatchdayOutput").default;
-const processMatchdayInput = require("./processMatchdayInput").default;
-const sortWinningTeams = require("./sortWinningTeams").default;
-const formatMatchdaysData = require("./formatMatchdaysData").default;
+const path = require('path');
+const { spawn } = require('child_process');
+const formatMatchdayOutput = require("../formatMatchdayOutput").default;
+const sortWinningTeams = require("../sortWinningTeams").default;
+const formatMatchdaysData = require("../formatMatchdaysData").default;
 
 describe("formatMatchdaysData", () => {
   it("take a string of matchday data and output it in the correct format with scores aggregated", () => {
@@ -12,7 +12,7 @@ describe("formatMatchdaysData", () => {
         Felton Lumberjacks 1, Aptos FC 2
         Santa Cruz Slugs 0, Capitola Seahorses 0
         Monterey United 4, San Jose Earthquakes 2`;
-
+    
     const formattedData = {
       1: {
         "San Jose Earthquakes": 1,
@@ -56,26 +56,29 @@ describe("sortWinningTeams", () => {
 });
 
 describe("processMatchdayInput", () => {
-  it("processes matchdays input data correctly", () => {
-    const readStreamSampleInput = fs.createReadStream("./sample-input.txt");
+  it("processes matchdays input data correctly", (done) => {
+    
+    const expectedOutput = `Matchday 1
+Capitola Seahorses, 3 pts
+Felton Lumberjacks, 3 pts
+San Jose Earthquakes, 1 pts
 
-    let processedInputData;
-    readStreamSampleInput.on("readable", () => {
-      const sampleInput = readStreamSampleInput.read();
-      processedInputData = processMatchdayInput(sampleInput);
-    });
+`
+    const testFilepath = path.join(
+      __dirname,
+      './processMatchdayInput.test.js',
+    )
 
-    const readStreamExpectedOutput = fs.createReadStream(
-      "./expected-output.txt"
-    );
+    const testChildProcess = spawn('node', [testFilepath])
+    
+    testChildProcess.stdout.on('data', data => {
+      const output = data.toString()
+      expect(output).toEqual(expectedOutput);
 
-    let expectedOutputData;
-    readStreamExpectedOutput.on("readable", () => {
-      const sampleOutput = readStreamExpectedOutput.read();
-      expectedOutputData = String(sampleOutput);
-    });
-
-    expect(processedInputData).toEqual(expectedOutputData);
+      testChildProcess.kill('SIGINT')
+      done()
+    })
+    
   });
 });
 
